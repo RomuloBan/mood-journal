@@ -11,7 +11,7 @@ const parser = StructuredOutputParser.fromZodSchema(
       subject: z.string().describe('the subject of the journal entry.'),
     summary: z
       .string()
-      .describe('quick summary of the entire entry.'),
+      .describe('quick summary of the entire entry. Should be a single sentence.'),
     negative: z
       .boolean()
       .describe('is the journal entry negative? (i.e. does it contain negative emotions?).'),
