@@ -7,7 +7,7 @@ const parser = StructuredOutputParser.fromZodSchema(
   z.object({
     mood: z
       .string()
-      .describe('the mood of the person who wrote the journal entry.'),
+      .describe('the mood of the person who wrote the journal entry. Should be one of the following: happy, sad, angry, anxious, excited, or neutral.'),
       subject: z.string().describe('the subject of the journal entry.'),
     summary: z
       .string()
@@ -43,4 +43,10 @@ export const analize = async (prompt: string) => {
   const input = await getPrompt(prompt)
   const model = new OpenAI({ temperature: 0, modelName: 'gpt-3.5-turbo'})
   const result = await model.invoke(input)
+
+  try {
+    return parser.parse(result)
+  } catch (e) {
+    console.error(e)
+  }
 }

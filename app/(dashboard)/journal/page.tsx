@@ -15,8 +15,6 @@ const getEntries = async () => {
       createdAt: "desc",
     },
   })
-  const entry = `Today was a eh, ok day I guess. I found a new coffee shop that was cool but then I got a flat tire. :)`  
-  await analize(entry)
   return entries
 }
 
