@@ -21,7 +21,6 @@ const getEntry = async (id) => {
 
 const EntryPage = async ({ params }) => {
   const entry = await getEntry(params.id)
-  console.log(entry)
   const { mood, negative, subject, summary, color } = entry.analysis
   const analysisData = [
     {
